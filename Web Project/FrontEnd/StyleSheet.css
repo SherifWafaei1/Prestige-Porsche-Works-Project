@@ -1,0 +1,2957 @@
+/* Modern luxury styling */
+:root {
+    --primary-color: #d5001c;  /* Porsche Red */
+    --secondary-color: #000000;  /* Black */
+    --accent-color: #ffffff;  /* White */
+    --text-color: #ffffff;
+    --light-text: #ffffff;
+    --dark-bg: #000000;
+    --light-bg: #1a1a1a;
+    --success-color: #27AE60;
+    --warning-color: #F1C40F;
+    --border-radius: 8px;
+    --box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    color: var(--text-color);
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+}
+
+.background-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    object-fit: cover;
+    filter: brightness(0.7);
+}
+
+/* Add an overlay to make text more readable */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2); /* Reduced opacity for more video visibility */
+    z-index: -1;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* Typography refinements for a more modern look */
+h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    text-transform: none;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    text-transform: none;
+    color: var(--accent-color);
+    line-height: 1.3;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+    line-height: 1.4;
+    color: var(--accent-color);
+}
+
+.welcome-heading {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    margin-bottom: 1.5rem;
+    color: var(--accent-color);
+}
+
+.welcome-text p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+.menu-btn {
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+
+.menu a {
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+    color: var(--accent-color);
+}
+
+.cta-button button {
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    color: var(--accent-color);
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.cta-button button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow);
+}
+
+.section-header h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+/* Add a subtle Porsche-style separator */
+.section-header:after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background-color: var(--porsche-red);
+    margin-top: 10px;
+}
+
+/* Refined spacing */
+.section {
+    margin: 0;
+    background-color: transparent; /* Changed from #000 */
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: none;
+    transition: none;
+    color: white;
+    padding: 80px 0;
+}
+
+.section:last-child {
+    border-bottom: none;
+}
+
+.section-content {
+    background-color: transparent; /* Changed from var(--light-text) */
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: none; /* Removed box-shadow */
+    transition: var(--transition);
+}
+
+.section-content:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+.section-header {
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+.section-header h2 {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 1rem;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+    border-radius: 2px;
+}
+
+.welcome-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    padding: 2rem;
+}
+
+.welcome-image {
+    position: relative;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+}
+
+.welcome-image img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.welcome-image:hover img {
+    transform: scale(1.05);
+}
+
+.welcome-text {
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.4); /* Added transparent background */
+    border-left: 3px solid var(--porsche-red); /* Kept for styling */
+}
+
+.model-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 480px;
+    height: 100%;
+    margin-bottom: 0;
+}
+
+.image-container {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+}
+
+.model-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+    background: transparent;
+}
+
+.model-card h3 {
+    padding: 1.2rem 1.2rem 0.2rem;
+    margin: 0;
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.model-card p {
+    padding: 0 1.2rem 0.5rem;
+    color: #e0e0e0;
+    opacity: 1;
+    font-size: 1.05rem;
+    text-align: center;
+}
+
+.model-card .model-stock {
+    font-size: 1.1em;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: center;
+    text-shadow: none;
+    color: #27ae60; /* Default to green for in-stock */
+    letter-spacing: 0.5px;
+}
+
+.model-card .model-stock.out-of-stock {
+    color: #d5001c;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+.model-card .model-stock.low-stock {
+    color: #f1c40f;
+    animation: pulse 1s infinite alternate;
+    font-size: 1.15em;
+}
+
+.model-specs {
+    list-style: none;
+    padding: 0 1.2rem 0.5rem 1.2rem;
+    margin: 0 0 10px 0;
+    color: #bdbdbd;
+    width: 100%;
+    text-align: left;
+    font-size: 0.98rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08); /* Adjusted transparency */
+}
+
+.model-specs li {
+    margin-bottom: 4px;
+    padding-left: 8px;
+    border-left: 2px solid #222;
+}
+
+.action-button {
+    background-color: #d5001c;
+    color: #fff;
+    border: none;
+    padding: 0.9rem 2.2rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1.08rem;
+    cursor: pointer;
+    transition: var(--transition);
+    margin: 1.2rem 0 1.5rem 0;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+
+.action-button:hover {
+    background-color: #fff;
+    color: #d5001c;
+    border: 2px solid #d5001c;
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 8px 24px rgba(213,0,28,0.12);
+}
+
+/* More elegant hover effects */
+.cta-button button:hover {
+    background-color: var(--porsche-black);
+    color: var(--porsche-white);
+    border-left: 3px solid var(--porsche-red);
+}
+
+.menu a:hover {
+    background-color: var(--primary-color);
+    color: var(--accent-color);
+}
+
+.highlight {
+    color: var(--porsche-red);
+    font-weight: 400;
+}
+
+/* Header styling like Porsche.com */
+header {
+    background-image: none; /* Removed background image */
+    background-color: transparent;
+    color: var(--accent-color);
+    padding: 0;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    box-shadow: none;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.admin-toggle-btn {
+    position: absolute;
+    top: 20px;
+    right: 40px; /* Adjust as needed */
+    background-color: rgba(255, 255, 255, 0.1); /* Adjusted transparency */
+    color: var(--accent-color);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.admin-toggle-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: var(--porsche-red);
+    color: var(--porsche-red);
+}
+
+.admin-toggle-btn i {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+.admin-toggle-btn:hover i {
+    transform: rotate(15deg);
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('header-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.9;
+    z-index: 0;
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, var(--porsche-red) 33%, var(--porsche-black) 33%, var(--porsche-black) 66%, var(--porsche-blue) 66%);
+    z-index: 2;
+}
+
+.header-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    width: 100%;
+}
+
+@font-face {
+    font-family: 'Glorious';
+    src: url('fonts/The Glorious-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Navigation like Porsche.com */
+nav {
+    background-color: rgba(0, 0, 0, 0.4); /* Reduced opacity for navigation */
+    padding: 1rem 2rem;
+    box-shadow: var(--box-shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.menu {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--accent-color);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.menu a:hover {
+    background-color: var(--primary-color);
+    color: var(--accent-color);
+}
+
+.menu-btn {
+    background-color: transparent;
+    color: white;
+    padding: 0 20px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: var(--transition);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    letter-spacing: 1px;
+    box-shadow: none;
+    height: 60px;
+    text-transform: uppercase;
+}
+
+.menu-btn:hover {
+    color: var(--porsche-red);
+}
+
+.menu {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.4); /* Reduced opacity for dropdown menu */
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    margin-top: 0;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-left: 3px solid var(--porsche-red);
+}
+
+.menu a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 12px 40px;
+    margin: 0;
+    border-radius: 0;
+    transition: var(--transition);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.menu a i {
+    margin-right: 15px;
+    width: 20px;
+    text-align: center;
+    opacity: 0.7;
+}
+
+.menu a:hover {
+    background-color: rgba(213, 0, 28, 0.1);
+    border-left: 3px solid var(--porsche-red);
+    padding-left: 37px;
+}
+
+/* Sections */
+.section {
+    margin: 0;
+    background-color: transparent; /* Changed from #000 */
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: none;
+    transition: none;
+    color: white;
+    padding: 80px 0;
+}
+
+.section:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+#home {
+    display: block;
+}
+
+.section-header {
+    background-color: rgba(0, 0, 0, 0.4); /* Made section header transparent */
+    padding: 15px 30px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.section-header h2 {
+    color: white;
+    margin: 0;
+    font-size: 2.5rem;
+    position: relative;
+    z-index: 1;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Home Section */
+.welcome-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+}
+
+.welcome-image {
+    flex: 1;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: none;
+    position: relative;
+}
+
+.welcome-image::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+}
+
+.welcome-text {
+    flex: 1;
+}
+
+.welcome-heading {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--primary-color);
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.welcome-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #e6e6e6;
+    margin-bottom: 25px;
+    font-weight: 400;
+}
+
+.cta-button button {
+    background-color: var(--porsche-red);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1rem;
+    border-radius: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+    border-left: 3px solid transparent;
+}
+
+.cta-button button:hover {
+    background-color: var(--porsche-black);
+    color: var(--porsche-white);
+    border-left: 3px solid var(--porsche-red);
+}
+
+.cta-button button i {
+    transition: transform 0.3s ease;
+}
+
+.cta-button button:hover i {
+    transform: translateX(5px);
+}
+
+/* Models Section */
+.model-selector, .model-info {
+    margin-bottom: 15px;
+}
+
+.model-selector select {
+    width: 100%;
+    padding: 1rem 2.5rem 1rem 1.2rem;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+    transition: border 0.2s, box-shadow 0.2s, background 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 1.2rem center;
+    background-size: 1.5rem;
+}
+
+.model-selector select:focus, .model-selector select:hover {
+    border: 2px solid var(--primary-color);
+    background: rgba(0,0,0,0.85);
+    outline: none;
+}
+
+.model-image {
+    flex: 1;
+    min-width: 300px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #f0f0f0;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.model-info {
+    display: none !important;
+}
+
+.model-details {
+    display: none !important;
+}
+
+.info-card {
+    display: none !important;
+}
+
+.action-button {
+    background-color: var(--porsche-black);
+    color: var(--porsche-white);
+    padding: 10px 20px;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-top: 10px;
+    border-left: 3px solid transparent;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.action-button:hover {
+    background-color: var(--porsche-gray);
+    border-left: 3px solid var(--porsche-red);
+}
+
+/* Customize Section */
+.customize-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 40px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* New style for the flex container within customize options */
+.customize-flex-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.modifications {
+    flex: 1.2;
+    padding: 1.2rem;
+    background: rgba(255, 255, 255, 0.1); /* Reduced opacity for modifications */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.color-selector {
+    flex: 0.8;
+    padding: 1.2rem;
+    background: rgba(255, 255, 255, 0.1); /* Reduced opacity for color selector */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    height: fit-content;
+}
+
+.modification-summary {
+    flex: 1;
+    padding: 1.2rem;
+    background: rgba(255, 255, 255, 0.1); /* Reduced opacity for modification summary */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+}
+
+.modifications h3,
+.color-selector h3,
+.modification-summary h3 {
+    color: #fff;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.mod-option {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.mod-option:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.mod-option label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.mod-description {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 0.3rem;
+    margin-left: 1.5rem;
+}
+
+.price-tag {
+    color: #4CAF50;
+    font-weight: bold;
+    margin-left: 0.5rem;
+}
+
+.color-selector select {
+    width: 100%;
+    padding: 1rem 2.5rem 1rem 1.2rem;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+    background: linear-gradient(135deg, #181818 70%, #2d2d2d 100%);
+    color: #d4af37;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 2px 18px rgba(212,175,55,0.10);
+    transition: border 0.2s, box-shadow 0.2s, background 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* background-image: url('data:image/svg+xml;utf8,<svg fill=\"gold\" height=\"20\" viewBox=\"0 0 24 24\" width=\"20\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M7 10l5 5 5-5z\"/></svg>'); */
+    /* background-repeat: no-repeat; */
+    /* background-position: right 1.2rem center; */
+    /* background-size: 1.5rem; */
+}
+
+.color-selector select:focus, .color-selector select:hover {
+    border: 2px solid var(--primary-color);
+    background: rgba(0,0,0,0.85);
+    outline: none;
+}
+
+.color-selector option {
+    color: #222;
+    background: #fff;
+    font-size: 1.05rem;
+    font-weight: 500;
+    padding: 0.7rem 1.2rem;
+}
+
+.color-preview {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    margin: 1rem auto;
+    transition: all 0.3s ease;
+}
+
+#selectedColorDisplay {
+    color: #fff;
+    text-align: center;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+
+.selected-mods-list {
+    list-style: none;
+    padding: 0;
+}
+
+.selected-mods-list li {
+    padding: 0.8rem;
+    margin-bottom: 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price-summary {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.final-price {
+    margin: 1rem 0;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+.final-price h3 {
+    color: #4CAF50;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.final-price p {
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0.3rem 0;
+}
+
+.action-button,
+.proceed-button {
+    padding: 0.8rem 1.5rem;
+    margin: 0.5rem;
+    font-size: 1rem;
+}
+
+@media (max-width: 1200px) {
+    .customize-flex-container {
+        flex-direction: column;
+        padding: 0 1rem;
+    }
+    
+    .modifications,
+    .color-selector,
+    .modification-summary {
+        width: 100%;
+        max-height: none;
+    }
+    
+    .modifications {
+        max-height: 500px;
+    }
+}
+
+/* Custom scrollbar for the modifications list */
+.modifications::-webkit-scrollbar,
+.selected-mods-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modifications::-webkit-scrollbar-track,
+.selected-mods-list::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.modifications::-webkit-scrollbar-thumb,
+.selected-mods-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+.modifications::-webkit-scrollbar-thumb:hover,
+.selected-mods-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Payment Section */
+.payment-info {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.payment-methods {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.payment-method {
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.4); /* Make background transparent */
+    border-radius: var(--border-radius);
+    min-width: 120px;
+    text-align: center;
+    border: 1px solid var(--porsche-red);
+    color: #ffffff;
+}
+
+.payment-method i {
+    font-size: 24px;
+    margin-bottom: 5px;
+    color: var(--porsche-red);
+}
+
+.payment-form-section {
+    display: none !important; /* Ensure hidden by default with higher specificity */
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-left: 3px solid var(--porsche-blue);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+}
+
+.payment-form-section.active {
+    display: block !important; /* Ensure active form is shown with higher specificity */
+}
+
+.payment-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: rgba(17, 17, 17, 0.4); /* Changed to semi-transparent */
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+}
+
+.payment-form .form-group {
+    background-color: transparent;
+    padding: 0;
+    margin-bottom: 20px;
+    border-left: none;
+}
+
+.payment-form label {
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+    opacity: 1;
+}
+
+.payment-form input[type="text"],
+.payment-form input[type="email"],
+.payment-form input[type="password"],
+.payment-form input[type="number"] {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #222;
+    border-radius: 10px;
+    font-size: 1rem;
+    background-color: #222;
+    color: #fff;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.payment-form input[type="text"]:focus,
+.payment-form input[type="email"]:focus,
+.payment-form input[type="password"]:focus,
+.payment-form input[type="number"]:focus {
+    border-color: #d5001c;
+    box-shadow: 0 0 0 2px rgba(213,0,28,0.15);
+    outline: none;
+}
+
+.payment-form .submit-button {
+    background-color: #d5001c;
+    color: #fff;
+    padding: 18px 0;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    width: 100%;
+    margin-top: 20px;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    letter-spacing: 1px;
+}
+
+.payment-form .submit-button:hover {
+    background-color: #fff;
+    color: #d5001c;
+    border: 2px solid #d5001c;
+    box-shadow: 0 8px 24px rgba(213,0,28,0.12);
+}
+
+.payment-status {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: var(--border-radius);
+}
+
+/* Contact Section */
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.contact-methods, .contact-form {
+    flex: 1;
+    min-width: 300px;
+}
+
+.contact-methods {
+    background-color: rgba(0, 0, 0, 0.4); /* Made contact methods transparent */
+    padding: 20px;
+}
+
+.contact-method {
+    background-color: rgba(0, 0, 0, 0.3); /* Made contact method transparent */
+    border-left: 2px solid var(--porsche-blue);
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.contact-method i {
+    font-size: 24px;
+    margin-right: 15px;
+    color: var(--primary-color);
+}
+
+.contact-form h3 {
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+    background-color: transparent; /* Ensure contact form h3 background is transparent */
+}
+
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    min-height: 150px;
+    resize: vertical;
+    background-color: rgba(0, 0, 0, 0.4); /* Made textarea transparent */
+}
+
+/* About Section */
+.about-content {
+    background-color: transparent; /* Made about content transparent */
+    padding: 20px;
+}
+
+.about-image, .about-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-image {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: transparent; /* Made about image background transparent */
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-text h3 {
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+    font-family: 'Open Sans', sans-serif; /* Applied modern font */
+}
+
+.about-text p {
+    font-family: 'Open Sans', sans-serif; /* Applied modern font */
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+.about-info {
+    background-color: rgba(0, 0, 0, 0.4); /* Made about info transparent */
+    padding: 25px;
+    border-radius: var(--border-radius);
+    margin: 20px 0;
+    color: white;
+    border-left: 3px solid var(--porsche-red);
+}
+
+/* Footer */
+footer {
+    background-color: rgba(0, 0, 0, 0.4); /* Reduced opacity for footer */
+    color: var(--accent-color);
+    padding: 4rem 0 2rem;
+    border-top: 4px solid var(--primary-color);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    padding: 0 2rem;
+}
+
+.footer-links a {
+    color: var(--accent-color);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 1rem;
+    transition: var(--transition);
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+    transform: translateX(5px);
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-icons a {
+    color: var(--accent-color);
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.social-icons a:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .welcome-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .menu {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .section-content {
+        padding: 1.5rem;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Animation Effects */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.section {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Color Preview Styles */
+.color-preview {
+    transition: background-color 0.3s ease;
+}
+
+/* Add a loading animation for images */
+@keyframes imageLoading {
+    0% { opacity: 0.6; }
+    50% { opacity: 0.8; }
+    100% { opacity: 0.6; }
+}
+
+.responsive-img:not([src]), .responsive-img[src=""] {
+    animation: imageLoading 1.5s infinite;
+    background-color: #f0f0f0;
+    width: 100%;
+    height: 300px;
+}
+
+/* Text readability improvements with black backgrounds */
+
+/* Text containers with black backgrounds */
+.welcome-text, .about-text, .contact-form-container, .payment-info {
+    background-color: rgba(0, 0, 0, 0.4); /* Reduced opacity for better visibility */
+    padding: 25px;
+    border-left: 3px solid var(--porsche-red);
+}
+
+/* Paragraph text with improved contrast */
+p {
+    color: #ffffff;
+    font-weight: 400;
+    line-height: 1.7;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+/* Form elements with black backgrounds */
+.form-group {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+/* Payment methods with improved contrast */
+.payment-method {
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.4); /* Make background transparent */
+    border-radius: var(--border-radius);
+    min-width: 120px;
+    text-align: center;
+    border: 1px solid var(--porsche-red);
+    color: #ffffff;
+}
+
+.payment-method i {
+    font-size: 24px;
+    margin-bottom: 5px;
+    color: var(--porsche-red);
+}
+
+/* Customization options with black backgrounds */
+.color-selector, .modifications {
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 20px;
+    border-left: 3px solid var(--porsche-red);
+    margin-bottom: 20px;
+}
+
+.mod-option {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-left: 2px solid var(--porsche-blue);
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+/* Menu with improved contrast */
+.menu {
+    background-color: rgba(0, 0, 0, 0.95);
+}
+
+.menu a {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Footer with improved contrast */
+.footer-content {
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 30px;
+}
+
+/* Welcome heading with improved styling */
+.welcome-heading {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px 15px;
+    margin: -25px -25px 20px -25px;
+    border-bottom: 2px solid var(--porsche-red);
+}
+
+/* Section content with black background */
+.section-content {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: block;
+    padding: 20px 30px;
+}
+
+/* Model selector with black background */
+.model-selector select {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #ffffff;
+    border: 1px solid var(--porsche-red);
+}
+
+/* Contact methods with black background */
+.contact-methods {
+    background-color: rgba(0, 0, 0, 0.4); /* Made contact methods transparent */
+    padding: 20px;
+}
+
+.contact-method {
+    background-color: rgba(0, 0, 0, 0.3); /* Made contact method transparent */
+    border-left: 2px solid var(--porsche-blue);
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+/* About section with black background */
+.about-content {
+    background-color: transparent; /* Made about content transparent */
+    padding: 20px;
+}
+
+/* Price summary with black background */
+.price-summary {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-left: 3px solid var(--porsche-red);
+}
+
+/* Final price with improved visibility */
+.final-price {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #ffffff;
+    padding: 15px;
+    margin: 15px 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+    border-left: 3px solid var(--porsche-gold);
+}
+
+
+/* Login Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top, increased to ensure visibility */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #0d0d0d; /* Dark background for modern look */
+    margin: auto; /* Centered */
+    padding: 30px; /* Increased padding */
+    border: 1px solid #333; /* Darker border */
+    width: 80%; /* Could be more responsive */
+    max-width: 500px; /* Max width */
+    border-radius: var(--border-radius); /* Use global border-radius */
+    box-shadow: var(--box-shadow); /* Apply consistent shadow */
+    position: relative; /* Needed for close button positioning */
+    animation: fadeIn 0.3s ease-out; /* Add fade-in animation */
+    color: var(--text-color);
+}
+
+.modal-content h2 {
+    color: var(--porsche-white);
+    margin-bottom: 25px;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.close-modal {
+    color: var(--porsche-white);
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: var(--porsche-red);
+    text-decoration: none;
+}
+
+.login-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.login-option-btn {
+    background-color: var(--porsche-red);
+    color: var(--porsche-white);
+    padding: 15px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.login-option-btn:hover {
+    background-color: #a10016;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.model-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    align-items: stretch;
+    width: 100%;
+}
+
+.model-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+}
+
+.model-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.model-card:hover img {
+    transform: scale(1.05);
+}
+
+.model-card h3 {
+    padding: 1.5rem 1.5rem 0.5rem;
+    margin: 0;
+}
+
+.model-card p {
+    padding: 0 1.5rem 1.5rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.model-card .model-stock {
+    font-size: 1.2em; /* Increased font size */
+    font-weight: 700; /* Made it bolder */
+    margin-bottom: 15px;
+    text-align: center;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.8); /* Stronger text shadow */
+    color: #4CAF50; /* Default to green for in-stock */
+}
+
+/* Ensure Out of Stock text is red */
+.model-card .model-stock.out-of-stock {
+    color: var(--porsche-red);
+}
+
+/* Styling for low stock (1 or 0 items) */
+.model-card .model-stock.low-stock {
+    color: var(--porsche-red); /* Red for low stock */
+    animation: pulse 1s infinite alternate; /* Subtle pulsing animation */
+    font-size: 1.3em; /* Slightly larger for emphasis */
+}
+
+@keyframes pulse {
+    from { transform: scale(1); opacity: 1; }
+    to { transform: scale(1.05); opacity: 0.8; }
+}
+
+.model-specs {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 25px 0;
+    color: #e0e0e0;
+    width: 100%;
+    text-align: left;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.model-specs li {
+    margin-bottom: 12px;
+    font-size: 0.98rem;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding-bottom: 10px;
+    color: #b0b0b0;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+}
+
+.model-specs li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.model-specs li span:first-child {
+    font-weight: 400;
+    color: #cccccc;
+}
+
+.model-specs li span:last-child {
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.model-card .action-button {
+    margin-top: auto;
+    width: calc(100% - 40px);
+    font-size: 1.1rem;
+    padding: 16px 0;
+    border-radius: 8px;
+    background-color: var(--secondary-color);
+    color: var(--accent-color);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.model-card .action-button:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.model-card img, .model-image img {
+    width: 100%;
+    max-width: 260px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 18px auto;
+    background: transparent;
+    border-radius: 8px;
+    border: none;
+    box-shadow: none;
+}
+
+@media (max-width: 1100px) {
+    /* Reset media query for model-section-flex as the HTML element was removed */
+    /*
+    .model-section-flex {
+        flex-direction: initial;
+        gap: initial;
+    }
+    */
+}
+
+/* Further refinements for inputs and labels */
+
+label {
+    color: #ffffff;
+    font-weight: 500;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #555; /* Keep border for visibility */
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.4); /* Reduced opacity for input fields */
+    color: #fff;
+    font-size: 16px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(213, 0, 28, 0.1);
+}
+
+.form-group label i {
+    margin-right: 8px;
+    color: var(--porsche-silver);
+}
+
+.contact-form .form-group label {
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.contact-form textarea {
+    min-height: 120px;
+}
+
+.payment-method {
+    font-size: 1.05rem;
+    font-weight: 500;
+    border-radius: 5px;
+}
+
+.payment-method.active {
+    border-color: var(--porsche-gold);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+}
+
+.payment-method:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.payment-form-section {
+    background-color: rgba(0, 0, 0, 0.4); /* Make background transparent */
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+}
+
+.payment-form .form-group {
+    background-color: transparent;
+    padding: 0;
+    margin-bottom: 20px;
+    border-left: none;
+}
+
+.card-input label, .form-group label {
+    margin-bottom: 10px;
+}
+
+/* New styles for modification summary */
+.modification-summary {
+    flex: 1;
+    padding: 1.2rem;
+    background: rgba(255, 255, 255, 0.1); /* Reduced opacity for modification summary */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+}
+
+.modification-summary h3 {
+    margin-bottom: 30px;
+    color: var(--porsche-white);
+    border-bottom: 2px solid var(--porsche-gold); /* Gold line for summary heading */
+    padding-bottom: 15px;
+    font-size: 1.6rem;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.selected-mods-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.selected-mods-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 1.05rem;
+    color: #e0e0e0;
+}
+
+.selected-mods-list li:last-child {
+    border-bottom: none;
+}
+
+.selected-mods-list li span:first-child {
+    font-weight: 400;
+    color: #cccccc;
+}
+
+.selected-mods-list li span:last-child {
+    font-weight: 600;
+    color: var(--porsche-gold); /* Gold for prices in summary */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* New style for the flex container within customize options */
+.customize-flex-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    align-items: stretch; /* Ensure items stretch to fill the height of the flex container */
+}
+
+.modifications,
+.color-selector,
+.modification-summary {
+    flex: 1;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    min-height: 500px; /* Set a minimum height for all three sections */
+}
+
+.modifications h3,
+.color-selector h3,
+.modification-summary h3 {
+    color: #fff;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.mod-option {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.mod-option:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.color-selector select {
+    width: 100%;
+    padding: 1rem 2.5rem 1rem 1.2rem;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+    background: linear-gradient(135deg, #181818 70%, #2d2d2d 100%);
+    color: #d4af37;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 2px 18px rgba(212,175,55,0.10);
+    transition: border 0.2s, box-shadow 0.2s, background 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* background-image: url('data:image/svg+xml;utf8,<svg fill=\"gold\" height=\"20\" viewBox=\"0 0 24 24\" width=\"20\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M7 10l5 5 5-5z\"/></svg>'); */
+    /* background-repeat: no-repeat; */
+    /* background-position: right 1.2rem center; */
+    /* background-size: 1.5rem; */
+}
+
+.color-selector select:focus, .color-selector select:hover {
+    border: 2px solid var(--primary-color);
+    background: rgba(0,0,0,0.85);
+    outline: none;
+}
+
+.color-selector option {
+    color: #222;
+    background: #fff;
+    font-size: 1.05rem;
+    font-weight: 500;
+    padding: 0.7rem 1.2rem;
+}
+
+.color-preview {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    margin: 1rem auto;
+    transition: all 0.3s ease;
+}
+
+#selectedColorDisplay {
+    color: #fff;
+    text-align: center;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+
+.selected-mods-list {
+    list-style: none;
+    padding: 0;
+}
+
+.selected-mods-list li {
+    padding: 0.8rem;
+    margin-bottom: 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price-summary {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+@media (max-width: 1200px) {
+    .customize-flex-container {
+        flex-direction: column;
+    }
+    
+    .modifications,
+    .color-selector,
+    .modification-summary {
+        width: 100%;
+        max-height: none;
+    }
+    
+    .modifications {
+        max-height: 500px;
+    }
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 15px;
+    margin-right: 20px; /* Spacing from the right edge */
+}
+
+.auth-button {
+    background-color: var(--porsche-red); /* Porsche red for primary button */
+    color: var(--porsche-white);
+    padding: 10px 20px;
+    border: 1px solid var(--porsche-red);
+    border-radius: 5px; /* Slightly rounded corners */
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.auth-button.login-btn {
+    background-color: var(--porsche-red);
+    border-color: var(--porsche-red);
+    color: var(--porsche-white);
+}
+
+.auth-button.login-btn:hover {
+    background-color: #a10016; /* Darker red on hover */
+    color: var(--porsche-white);
+    border-color: #a10016;
+}
+
+.auth-button.register-btn:hover {
+    background-color: #a10016; /* Darker red on hover */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.auth-button.verify-email-btn:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+}
+
+.admin-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-right: 20px; /* Aligns with the previous auth buttons */
+}
+
+.welcome-message {
+    color: var(--porsche-white);
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.user-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-right: 20px; /* Aligns with the previous auth buttons */
+}
+
+.user-signout-btn {
+    background-color: var(--porsche-red);
+    color: var(--porsche-white);
+    padding: 10px 20px;
+    border: 1px solid var(--porsche-red);
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.user-signout-btn:hover {
+    background-color: #a10016;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+
+.auth-form {
+    background-color: rgba(0, 0, 0, 0.4); /* Reduced opacity for auth forms */
+    padding: 25px;
+    border-radius: var(--border-radius);
+}
+
+.auth-form .form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.auth-form .form-row .form-group {
+    flex: 1;
+}
+
+.auth-form .form-group {
+    margin-bottom: 15px;
+}
+
+.auth-form .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: 500;
+}
+
+.auth-form .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.auth-form .form-group input:focus {
+    border-color: #d5001c;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(213, 0, 28, 0.1);
+}
+
+.auth-form .form-group i {
+    margin-right: 5px;
+    color: #666;
+}
+
+.auth-form .error-message {
+    color: #d5001c;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.auth-form .submit-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #d5001c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.auth-form .submit-button:hover {
+    background-color: #b30000;
+}
+
+/* Admin Dashboard Styles */
+.admin-dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.admin-card {
+    background: rgba(255, 255, 255, 0.1); /* Reduced opacity for admin cards */
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* Stronger shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Add background-color to transition */
+    cursor: pointer;
+    border: 1px solid rgba(213, 0, 28, 0.2); /* Slightly more prominent red border */
+}
+
+.admin-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(213, 0, 28, 0.4); /* Stronger shadow on hover */
+    border-color: rgba(213, 0, 28, 0.5); /* More prominent red border on hover */
+    background-color: rgba(213, 0, 28, 0.15); /* Subtle red tint on hover */
+}
+
+.admin-card i {
+    font-size: 2.8em; /* Slightly larger icons */
+    color: var(--porsche-gold); /* Change icons to gold for contrast */
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+.admin-card:hover i {
+    color: #ffd700; /* Brighter gold on hover */
+}
+
+.admin-card h3 {
+    color: #ffffff; /* White text for titles */
+    margin: 10px 0;
+    font-weight: 600;
+}
+
+.admin-card p {
+    color: #e0e0e0; /* Lighter grey for descriptions */
+    font-size: 0.95em; /* Slightly larger description text */
+}
+
+.admin-section-content {
+    background: rgba(26, 26, 26, 0.4); /* Reduced opacity for admin section content */
+    border-radius: 10px;
+    padding: 25px;
+    margin-top: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 1px solid rgba(213, 0, 28, 0.1);
+    color: white;
+}
+
+/* Section Headers */
+.admin-section-content h3 {
+    color: #ffffff;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(213, 0, 28, 0.5);
+}
+
+/* Admin Table Styles */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: rgba(0, 0, 0, 0.4); /* Reduced opacity for admin table background */
+    color: white;
+    font-size: 0.95em;
+    letter-spacing: 0.5px;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 18px 15px; /* Increased padding */
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* Lighter, subtle border */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.admin-table th {
+    background-color: #1a1a1a; /* Darker grey for table headers */
+    font-weight: 600;
+    color: var(--porsche-gold); /* Gold color for headers */
+    text-transform: uppercase;
+    font-size: 0.9em;
+    padding: 15px 15px; /* Adjusted padding for headers */
+}
+
+.admin-table tr:hover {
+    background-color: rgba(213, 0, 28, 0.08); /* Subtle red hover */
+}
+
+.admin-table td {
+    color: #e6e6e6; /* Light grey for table cell text */
+}
+
+/* Price column specific styling */
+.admin-table td:nth-child(2) {
+    font-weight: 700;
+    color: #4CAF50; /* Stronger green for price */
+    text-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+/* Admin Form Styles */
+.admin-form {
+    max-width: 700px; /* Slightly wider form */
+    margin: 20px auto; /* Centered with margin */
+    background: #1a1a1a; /* Porsche Jet Black for form background */
+    padding: 30px 40px; /* Increased padding */
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5); /* Stronger shadow */
+    border: 1px solid rgba(213, 0, 28, 0.2); /* Subtle red border */
+    color: white;
+}
+
+.admin-form .form-group {
+    margin-bottom: 25px; /* More spacing between groups */
+}
+
+.admin-form label {
+    display: block;
+    margin-bottom: 10px; /* More spacing below label */
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 1.05em;
+}
+
+.admin-form input,
+.admin-form select,
+.admin-form textarea {
+    width: 100%;
+    padding: 14px; /* Larger input fields */
+    border: 1px solid #555; /* Darker border for inputs */
+    border-radius: 6px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #0d0d0d; /* Even darker background for inputs */
+    color: #ffffff;
+    font-size: 1em;
+}
+
+.admin-form input:focus,
+.admin-form select:focus,
+.admin-form textarea:focus {
+    border-color: var(--porsche-red); /* Porsche Red on focus */
+    box-shadow: 0 0 0 3px rgba(213, 0, 28, 0.25); /* Red glowing effect on focus */
+    outline: none;
+}
+
+.admin-form button {
+    background-color: var(--porsche-red); /* Red for primary action buttons */
+    color: white;
+    padding: 14px 28px; /* Larger buttons */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.admin-form button:hover {
+    background-color: #b30000; /* Darker red on hover */
+    transform: translateY(-2px);
+}
+
+/* Admin Action Buttons (Edit/Delete/Save/Cancel) */
+.admin-action-btn {
+    padding: 10px 20px; /* Consistent padding */
+    border: none;
+    border-radius: 5px; /* Slightly more rounded */
+    cursor: pointer;
+    margin-right: 10px; /* More spacing */
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.edit-btn {
+    background-color: var(--porsche-black); /* Black background */
+    color: var(--porsche-gold); /* Gold icon/text */
+    border: 1px solid var(--porsche-gold); /* Gold border */
+}
+
+.edit-btn:hover {
+    background-color: #333333; /* Darker grey on hover */
+    color: #ffd700; /* Brighter gold on hover */
+    border-color: #ffd700;
+    transform: translateY(-2px);
+}
+
+.delete-btn {
+    background-color: var(--porsche-red); /* Porsche Guards Red */
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #b30000;
+    transform: translateY(-2px);
+}
+
+.save-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.save-btn:hover {
+    background-color: #45a049;
+}
+
+.cancel-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.cancel-btn:hover {
+    background-color: #da190b;
+}
+
+.admin-action-btn i {
+    margin-right: 5px;
+}
+
+/* Model Table Container */
+.models-table-container {
+    margin: 25px 0;
+    overflow-x: auto;
+    background: rgba(0, 0, 0, 0.4); /* Reduced opacity for models table container */
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+    border: 1px solid rgba(213, 0, 28, 0.15); /* Subtle red border */
+}
+
+.models-table-container .admin-table {
+    margin-bottom: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.models-table-container .admin-table td {
+    vertical-align: middle;
+}
+
+.models-table-container .admin-table td:nth-child(2) {
+    font-weight: 700;
+    color: #4CAF50;
+    text-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+/* Stock Table Container */
+.stock-table-container {
+    margin: 25px 0;
+    overflow-x: auto;
+    background: rgba(0, 0, 0, 0.4); /* Reduced opacity for stock table container */
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+    border: 1px solid rgba(213, 0, 28, 0.15); /* Subtle red border */
+}
+
+.stock-table-container .admin-table {
+    margin-bottom: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.stock-input {
+    width: 80px;
+    padding: 8px 10px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background-color: #0d0d0d;
+    color: #ffffff;
+    font-size: 1em;
+    text-align: center;
+    -moz-appearance: textfield;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stock-input:focus {
+    border-color: var(--porsche-red);
+    box-shadow: 0 0 0 3px rgba(213, 0, 28, 0.25);
+    outline: none;
+}
+
+.stock-input::-webkit-outer-spin-button,
+.stock-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Appointments Table Container */
+.appointments-table-container {
+    margin: 25px 0;
+    overflow-x: auto;
+    background: rgba(0, 0, 0, 0.4); /* Reduced opacity for appointments table container */
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+    border: 1px solid rgba(213, 0, 28, 0.15); /* Subtle red border */
+}
+
+.appointments-table-container .admin-table {
+    margin-bottom: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Status Badges */
+.status-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.85em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
+
+.status-pending {
+    background-color: #ffc107; /* Amber for pending */
+    color: #333;
+}
+
+.status-confirmed {
+    background-color: #28a745; /* Green for confirmed */
+}
+
+.status-cancelled {
+    background-color: #dc3545; /* Red for cancelled */
+}
+
+.status-completed {
+    background-color: #007bff; /* Blue for completed */
+}
+
+.status-active {
+    background-color: #28a745; /* Green for active */
+    color: #ffffff;
+}
+
+.status-inactive {
+    background-color: #dc3545; /* Red for inactive */
+    color: #ffffff;
+}
+
+/* Admin Form Select styles */
+.admin-form select {
+    background-color: rgba(13, 13, 13, 0.4); /* Reduced opacity for admin form select */
+    color: #ffffff;
+}
+
+/* Discounts Table Container */
+.discounts-table-container {
+    margin: 25px 0;
+    overflow-x: auto;
+    background: rgba(0, 0, 0, 0.4); /* Reduced opacity for discounts table container */
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+    border: 1px solid rgba(213, 0, 28, 0.15); /* Subtle red border */
+}
+
+.discounts-table-container .admin-table {
+    margin-bottom: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.price-item.discount {
+    font-size: 1.25em;
+    font-weight: 600;
+}
+
+@media (min-width: 900px) {
+  .model-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    align-items: stretch;
+    width: 100%;
+  }
+}
+
+.model-card img[src*="Porsche911TurboS.png"] {
+    transform: scale(1.32);
+    margin-top: -18px;
+    margin-bottom: -18px;
+}
+
+.model-card img[src*="NewPanamera.jpg"] {
+    transform: scale(1.32);
+    margin-top: -18px;
+    margin-bottom: -18px;
+}
+
+/* Cart Button Styles */
+.cart-btn {
+    position: relative;
+    padding: 8px 15px;
+    background-color: #1a1a1a;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s;
+    margin-top: 0; /* Ensure no top margin */
+    margin-bottom: 0; /* Ensure no bottom margin */
+    vertical-align: middle; /* Align vertically in the middle */
+}
+
+.cart-btn:hover {
+    background-color: #333;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #ff4444;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    display: none;
+}
+
+/* Cart Modal Styles */
+.cart-modal-content {
+    max-width: 800px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    background-color: #0d0d0d;
+    color: var(--text-color);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.cart-items {
+    margin: 20px 0;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.cart-item-image {
+    width: 150px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.cart-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cart-item-details {
+    flex: 1;
+}
+
+.cart-item-details h3 {
+    margin: 0 0 10px 0;
+    color: var(--accent-color);
+    font-size: 1.2em;
+}
+
+.cart-item-details p {
+    margin: 5px 0;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.cart-item-details ul {
+    margin: 5px 0;
+    padding-left: 20px;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.cart-item-price {
+    font-weight: bold;
+    color: var(--accent-color) !important;
+    margin-top: 10px !important;
+    font-size: 1.2em;
+}
+
+.remove-item-btn {
+    background: none;
+    border: none;
+    color: var(--porsche-red);
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.3s;
+    font-size: 1.2em;
+}
+
+.remove-item-btn:hover {
+    color: #ff4444;
+}
+
+.cart-summary {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.cart-total {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.cart-total h3 {
+    color: var(--accent-color);
+    font-size: 1.5em;
+}
+
+.cart-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+}
+
+.cart-actions .action-button {
+    flex-grow: 1; /* Allow buttons to grow and fill space */
+    min-width: 180px; /* Ensure minimum width for readability */
+}
+
+.empty-cart {
+    text-align: center;
+    color: var(--text-color);
+    padding: 20px;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+/* Cart count badge */
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: var(--porsche-red);
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    display: none;
+    min-width: 18px;
+    height: 18px;
+    text-align: center;
+    line-height: 14px;
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cart-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cart-item-image {
+        width: 100%;
+        height: 150px;
+    }
+
+    .cart-actions {
+        flex-direction: column;
+    }
+
+    .cart-actions button {
+        width: 100%;
+    }
+}
+
+.remove-all-btn {
+    background-color: #cc0000; /* A distinct red color for removal */
+    color: white;
+}
+
+.remove-all-btn:hover {
+    background-color: #ff0000; /* Slightly lighter red on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.social-icons a[href*="facebook"], .social-icons a.facebook {
+    /* Facebook blue */
+}
+.social-icons a[href*="whatsapp"], .social-icons a.whatsapp {
+    /* WhatsApp green */
+}
+.social-icons a[href*="instagram"], .social-icons a.instagram {
+    /* Instagram pink */
+}
+.social-icons a[href*="tiktok"], .social-icons a.tiktok {
+    /* TikTok black */
+}
+.social-icons a[href*="twitter"], .social-icons a.twitter {
+    /* Twitter blue */
+}
+
+.social-icons a.facebook:hover {
+    background-color: #1877f3;
+    color: #fff;
+}
+.social-icons a.whatsapp:hover {
+    background-color: #25d366;
+    color: #fff;
+}
+.social-icons a.instagram:hover {
+    background-color: #e4405f;
+    color: #fff;
+}
+.social-icons a.tiktok:hover {
+    background-color: #010101;
+    color: #fff;
+}
+.social-icons a.twitter:hover {
+    background-color: #1da1f2;
+    color: #fff;
+}
+
+.contact-form .submit-button {
+    background-color: #d5001c;
+    color: #fff;
+    padding: 16px 36px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 16px rgba(213,0,28,0.10);
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 18px;
+    cursor: pointer;
+}
+
+.contact-form .submit-button:hover {
+    background-color: #fff;
+    color: #d5001c;
+    box-shadow: 0 8px 32px rgba(213,0,28,0.18);
+    border: 2px solid #d5001c;
+    transform: translateY(-2px) scale(1.04);
+}
+
+#pinModal .modal-content {
+    background: #181818;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(213,0,28,0.18);
+    padding: 40px 36px 32px 36px;
+    max-width: 420px;
+    width: 95%;
+    color: #fff;
+    text-align: center;
+}
+
+#pinModal .modal-content h2 {
+    color: #fff;
+    font-size: 2.1rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+}
+
+#pinModal .modal-content p {
+    color: #e0e0e0;
+    font-size: 1.08rem;
+    margin-bottom: 22px;
+}
+
+#pinInput {
+    width: 100%;
+    padding: 16px 14px;
+    font-size: 1.15rem;
+    border: 2px solid #d5001c;
+    border-radius: 8px;
+    background: #111;
+    color: #fff;
+    margin-bottom: 22px;
+    margin-top: 8px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+#pinInput:focus {
+    border-color: #fff;
+    box-shadow: 0 0 0 2px #d5001c44;
+    outline: none;
+}
+
+#pinModal .pin-btn-group {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 18px;
+}
+
+#pinModal .submit-button {
+    background-color: #d5001c;
+    color: #fff;
+    padding: 12px 22px;
+    border: none;
+    border-radius: 7px;
+    font-size: 1.08rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 8px rgba(213,0,28,0.10);
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    cursor: pointer;
+}
+#pinModal .submit-button:hover {
+    background-color: #fff;
+    color: #d5001c;
+    box-shadow: 0 8px 24px rgba(213,0,28,0.18);
+    border: 2px solid #d5001c;
+    transform: translateY(-2px) scale(1.04);
+}
+
+#pinModal .error-message, #pinModal .success-message {
+    margin-top: 18px;
+    font-size: 1.05rem;
+    border-radius: 6px;
+    padding: 10px 0;
+}
+#pinModal .error-message {
+    color: #fff;
+    background: #d5001c33;
+}
+#pinModal .success-message {
+    color: #27ae60;
+    background: #27ae6022;
+}
+
+/* Improved color selector dropdown */
+.color-selector select {
+    width: 100%;
+    padding: 1rem 2.5rem 1rem 1.2rem;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+    background: linear-gradient(135deg, #181818 70%, #2d2d2d 100%);
+    color: #d4af37;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 2px 18px rgba(212,175,55,0.10);
+    transition: border 0.2s, box-shadow 0.2s, background 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+}
+.color-selector select:focus, .color-selector select:hover {
+    border: 2px solid #d4af37;
+    background: linear-gradient(135deg, #232323 70%, #3a2e1a 100%);
+    color: #fff;
+    outline: none;
+}
+.color-selector option {
+    background: linear-gradient(135deg, #181818 70%, #2d2d2d 100%);
+    color: #d4af37;
+    font-weight: 600;
+    border-bottom: 1px solid #333;
+    padding: 1rem 1.2rem;
+}
+.color-selector select option:checked {
+    background: #2d2d2d;
+    color: #fff;
+}
+.color-selector select::-webkit-scrollbar {
+    width: 10px;
+    background: #181818;
+}
+.color-selector select::-webkit-scrollbar-thumb {
+    background: #d4af37;
+    border-radius: 6px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 20px 0;
+    margin: 20px 0;
+    gap: 10px;
+}
+
+.pagination li {
+    display: inline-block;
+}
+
+.pagination .page-link {
+    display: block;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #333;
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.pagination .page-link:hover {
+    background-color: #ddd;
+}
+
+.pagination .active .page-link {
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
+}
+
+.pagination .disabled .page-link {
+    color: #ccc;
+    cursor: not-allowed;
+    background-color: #f9f9f9;
+}

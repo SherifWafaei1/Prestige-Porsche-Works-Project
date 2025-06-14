@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prestige Porsche Works</title>
+    <link rel="stylesheet" href="StyleSheet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="BackEnd.js" defer></script>
+</head>
+
+<body>
+    <video autoplay muted loop id="myVideo" class="background-video">
+        <source src="BackGroundCinematic.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <header>
+        <div class="header-content">
+            <h1>Prestige Porsche Works</h1>
+            <h3>Your Dreams, Our Mission – We Turn Imagination into Reality!</h3>
+        </div>
+    </header>
+    
+    <nav>
+        <!-- Regular Menu -->
+        <button class="menu-btn" onclick="toggleMenu()">☰ Menu</button>
+        <div class="auth-buttons" id="authButtons">
+            <button class="auth-button login-btn">Login</button>
+            <button class="auth-button register-btn">Register</button>
+            <button class="auth-button verify-email-btn">Verify Email</button>
+            <button class="auth-button cart-btn" onclick="showCart()">
+                <i class="fas fa-shopping-cart"></i> Cart
+                <span class="cart-count" id="cartCount">0</span>
+            </button>
+        </div>
+        <div class="admin-controls" id="adminControls" style="display: none;">
+            <span class="welcome-message">Welcome, Admin</span>
+            <button class="auth-button signout-btn">Sign Out</button>
+        </div>
+        <div class="user-controls" id="userControls" style="display: none;">
+            <span class="welcome-message">Logged in</span>
+            <button class="auth-button user-signout-btn">Sign Out</button>
+        </div>
+        <div id="menu" class="menu">
+            <a href="#home" onclick="showSection('home')"><i class="fas fa-home"></i> Home</a>
+            <a href="#models" onclick="showSection('models')"><i class="fas fa-car"></i> Select Model</a>
+            <a href="#customize" onclick="showSection('customize')"><i class="fas fa-paint-brush"></i> Customize</a>
+            <a href="#payment" onclick="showSection('payment')"><i class="fas fa-credit-card"></i> Payment</a>
+            <a href="#contact" onclick="showSection('contact')"><i class="fas fa-envelope"></i> Contact</a>
+            <a href="#about" onclick="showSection('about')"><i class="fas fa-info-circle"></i> About</a>
+            <a href="#update-info" id="updateInfoMenuItem" style="display: none;" onclick="showSection('update-info')"><i class="fas fa-user-edit"></i> Update Information</a>
+            <a href="#admin-dashboard" id="adminDashboardMenuItem" style="display: none;" onclick="showSection('admin-dashboard')"><i class="fas fa-tachometer-alt"></i> Admin Dashboard</a>
+            <a href="#order-history" id="orderHistoryMenuItem" style="display: none;" onclick="showSection('order-history')"><i class="fas fa-history"></i> Order History</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section id="home" class="section">
+            <div class="section-header">
+                <h2>Welcome to Porsche Customization</h2>
+            </div>
+            <div class="section-content">
+                <div class="welcome-container">
+                    <div class="welcome-image">
+                        <img src="HomeImg.jpg" alt="Luxury Porsche" class="responsive-img">
+                    </div>
+                    <div class="welcome-text">
+                        <h3 class="welcome-heading">Customize and book your dream Porsche today!</h3>
+                        <p>
+                            Porsche has a rich history of innovation, performance, and luxury. Founded in 1931 by Ferdinand Porsche, 
+                            the brand has been at the forefront of automotive excellence. From the legendary 911 to modern electric 
+                            performance with the Taycan, Porsche continues to push the boundaries of speed and design.
+                        </p>
+                        <p>
+                            At <span class="highlight">Prestige Porsche Works</span>, we specialize in modifying and personalizing your Porsche to match your unique 
+                            style. Whether it's custom paint, performance upgrades, or exclusive interior designs, we bring your dream 
+                            Porsche to life.
+                        </p>
+                        <div class="cta-button">
+                            <button onclick="showSection('models')">Start Customizing <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="models" class="section">
+            <div class="section-header">
+                <h2>Select Your Porsche Model</h2>
+            </div>
+            <div class="section-content">
+                <div class="model-list" id="modelList"></div>
+                <div id="paginationControls">
+                    <!-- Pagination controls will be rendered here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <section id="customize" class="section">
+            <div class="section-header">
+                <h2>Customize Your Porsche</h2>
+            </div>
+            <div class="section-content">
+                <div class="customize-flex-container">
+                    <!-- Premium Modifications (Left) -->
+                    <div class="modifications">
+                        <h3>Premium Modifications</h3>
+                        <div class="mod-option">
+                            <input type="checkbox" id="performance" value="2000">
+                            <label for="performance">Performance Upgrade <span class="price-tag">+$2,000</span></label>
+                            <p class="mod-description">Enhanced engine tuning, sport exhaust, and improved suspension</p>
+                        </div>
+                        
+                        <div class="mod-option">
+                            <input type="checkbox" id="interior" value="1500">
+                            <label for="interior">Luxury Interior <span class="price-tag">+$1,500</span></label>
+                            <p class="mod-description">Premium leather, custom stitching, and ambient lighting</p>
+                        </div>
+                        
+                        <div class="mod-option">
+                            <input type="checkbox" id="wheels" value="1000">
+                            <label for="wheels">Custom Wheels <span class="price-tag">+$1,000</span></label>
+                            <p class="mod-description">Exclusive design wheels with custom finish</p>
+                        </div>
+                        
+                        <div class="mod-option">
+                            <input type="checkbox" id="goldTrim" value="2000">
+                            <label for="goldTrim">24K Gold Trim Wheels <span class="price-tag">+$2,000</span></label>
+                            <p class="mod-description">High-quality 24K gold trim applied to wheels for a luxurious look.</p>
+                        </div>
+
+                        <div class="mod-option">
+                            <input type="checkbox" id="performanceExhaust" value="750">
+                            <label for="performanceExhaust">Performance Exhaust <span class="price-tag">+$750</span></label>
+                            <p class="mod-description">Upgraded exhaust system for improved sound and performance.</p>
+                        </div>
+
+                        <div class="mod-option">
+                            <input type="checkbox" id="blackTint" value="500">
+                            <label for="blackTint">Black Tint <span class="price-tag">+$500</span></label>
+                            <p class="mod-description">Dark tinting for all windows for privacy and style.</p>
+                        </div>
+
+                        <div class="mod-option">
+                            <input type="checkbox" id="raceSuspension" value="2500">
+                            <label for="raceSuspension">Race Suspension <span class="price-tag">+$2,500</span></label>
+                            <p class="mod-description">Competition-grade suspension for superior handling and track performance.</p>
+                        </div>
+
+                        <div class="mod-option">
+                            <input type="checkbox" id="grainedLeather" value="600">
+                            <label for="grainedLeather">Grained Leather Interior <span class="price-tag">+$600</span></label>
+                            <p class="mod-description">Premium grained leather upholstery for a sophisticated and durable interior.</p>
+                        </div>
+
+                        <div class="mod-option">
+                            <input type="checkbox" id="raceEngine" value="7000">
+                            <label for="raceEngine">Race Engine <span class="price-tag">+$7,000</span></label>
+                            <p class="mod-description">High-performance race-tuned engine for maximum power and speed.</p>
+                        </div>
+                    </div>
+
+                    <!-- Color Selection (Middle) -->
+                    <div class="color-selector">
+                        <h3>Exterior Color</h3>
+                        <select id="colorDropdown" onchange="selectColor()">
+                            <option value="black">Black</option>
+                            <option value="white">White</option>
+                            <option value="red">Red</option>
+                            <option value="blue">Blue</option>
+                            <option value="silver">Silver</option>
+                            <option value="yellow">Yellow</option>
+                            <option value="green">Green</option>
+                            <option value="orange">Orange</option>
+                            <option value="purple">Purple</option>
+                            <option value="gold">Gold</option>
+                            <option value="bronze">Bronze</option>
+                            <option value="carbon">Carbon Fiber</option>
+                            <option value="midnight">Midnight Black</option>
+                            <option value="champagne">Champagne</option>
+                            <option value="navy">Navy Blue</option>
+                        </select>
+                        <div class="color-preview" id="colorPreview"></div>
+                        <p id="selectedColorDisplay">Selected Color: None</p>
+                    </div>
+
+                    <!-- Modification Summary (Right) -->
+                    <div class="modification-summary" id="modificationSummary">
+                        <h3>Selected Modifications</h3>
+                        <div class="selected-mods-list">
+                            <!-- Dynamic summary of selected modifications will be rendered here -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="price-summary">
+                    <button onclick="calculatePrice()" class="action-button"><i class="fas fa-calculator"></i> Calculate Final Price</button>
+                    <div id="finalPrice" class="final-price"></div>
+                    <button onclick="showSection('payment')" class="proceed-button"><i class="fas fa-shopping-cart"></i> Proceed to Payment</button>
+                </div>
+            </div>
+        </section>
+        
+        <section id="payment" class="section">
+            <div class="section-header">
+                <h2>Payment</h2>
+            </div>
+            <div class="section-content">
+                <div class="discount-code-section" style="margin-bottom: 1rem; text-align: center;">
+                    <input type="text" id="discountCodeInput" placeholder="Enter discount code" style="padding: 0.5rem; border-radius: 5px; border: 1px solid #ccc; width: 220px;">
+                    <button onclick="applyDiscountCode()" class="action-button" style="margin-left: 0.5rem;">Apply</button>
+                    <div id="discountCodeMessage" style="margin-top: 0.5rem; color: #4CAF50;"></div>
+                </div>
+
+                <div id="orderSummary" class="order-summary" style="margin-bottom: 2rem;"></div>
+                <div class="payment-info">
+                    <p>Select your preferred payment method:</p>
+                    <div class="payment-methods">
+                        <div class="payment-method active" onclick="switchPaymentMethod('card')">
+                            <i class="fab fa-cc-visa"></i> Visa/Mastercard
+                        </div>
+                        <div class="payment-method" onclick="switchPaymentMethod('paypal')">
+                            <i class="fab fa-paypal"></i> PayPal
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card Payment Form -->
+                <div id="card-form" class="payment-form-section active" data-payment="card" style="display: block;">
+                    <form id="cardForm" onsubmit="return processPayment(event)" class="payment-form">
+                        <div class="form-group card-input">
+                            <label for="cardNumber"><i class="far fa-credit-card"></i> Card number</label>
+                            <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" required oninput="formatCardNumber(this)">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="expiryDate"><i class="far fa-calendar-alt"></i> Expiry date</label>
+                                <input type="text" id="expiryDate" placeholder="MM/YY" required oninput="formatExpiryDate(this)">
+                            </div>
+                            <div class="form-group">
+                                <label for="cvv"><i class="fas fa-lock"></i> Security code</label>
+                                <input type="text" id="cvv" placeholder="123" required maxlength="4">
+                            </div>
+                        </div>
+                        <button type="submit" class="submit-button"><i class="fas fa-lock"></i> Pay securely</button>
+                    </form>
+                </div>
+
+                <!-- PayPal Payment Form -->
+                <div id="paypal-form" class="payment-form-section" data-payment="paypal" style="display: none;">
+                    <form id="paypalForm" onsubmit="return processPayment(event)" class="payment-form">
+                        <div class="form-group">
+                            <label for="paypalEmail"><i class="far fa-envelope"></i> PayPal email</label>
+                            <input type="email" id="paypalEmail" placeholder="your@email.com" required>
+                        </div>
+                        <button type="submit" class="submit-button"><i class="fab fa-paypal"></i> Pay with PayPal</button>
+                    </form>
+                </div>
+
+                <p id="paymentStatus" class="payment-status"></p>
+            </div>
+        </section>
+        
+        <section id="contact" class="section">
+            <div class="section-header">
+                <h2>Contact Us</h2>
+            </div>
+            <div class="section-content contact-content">
+                <div class="contact-details">
+                    <div class="detail-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Egypt, Cairo, Madinet Nasr Prestige Porsche Works' Building next to the Child Park</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+20 1026011230</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>prestigeporscheworks@gmail.com</span>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <h3>Send us a Message</h3>
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="contactName">Name:</label>
+                            <input type="text" id="contactName" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail">Email:</label>
+                            <input type="email" id="contactEmail" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactMessage">Message:</label>
+                            <textarea id="contactMessage" placeholder="Your Message" rows="6" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-button"><i class="fas fa-paper-plane"></i> Send Message</button>
+                    </form>
+                    <div id="contactInfo" class="contact-info-message"></div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="about" class="section">
+            <div class="section-header">
+                <h2>About Prestige Porsche Works</h2>
+            </div>
+            <div class="section-content">
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="AboutImg.jpg" alt="Our Workshop" class="responsive-img" width = "75%" height = "75%">
+                    </div>
+                    <div class="about-text">
+                        <h3>Our Story</h3>
+                        <p>Founded by a team of passionate Porsche enthusiasts and expert technicians, Prestige Porsche Works has been at the forefront of luxury vehicle customization for over two decades.</p>
+                        <p>Our mission is to provide unparalleled customization services that enhance both the performance and aesthetics of your Porsche, creating a truly unique driving experience tailored to your preferences.</p>
+                        <p>With state-of-the-art facilities and a team of certified specialists, we ensure that every modification meets the highest standards of quality and craftsmanship.</p>
+                        <p id="aboutInfo" class="about-info"></p>
+                        <button onclick="aboutUs()" class="action-button"><i class="fas fa-plus-circle"></i> Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Update Information Section -->
+        <section id="update-info" class="section" style="display: none;">
+            <div class="section-header">
+                <h2>Update Your Information</h2>
+            </div>
+            <div class="section-content">
+                <!-- Password Verification Form -->
+                <div id="passwordVerificationForm" class="auth-form">
+                    <h3>Verify Your Password</h3>
+                    <p>Please enter your current password to update your information</p>
+                    <div class="form-group">
+                        <label for="currentPassword"><i class="fas fa-lock"></i> Current Password:</label>
+                        <input type="password" id="currentPassword" placeholder="Enter your current password" required>
+                    </div>
+                    <button type="button" class="submit-button" onclick="verifyPassword()"><i class="fas fa-check"></i> Verify Password</button>
+                    <p class="error-message" id="passwordVerificationError"></p>
+                </div>
+
+                <!-- Update Information Form (initially hidden) -->
+                <form id="updateInfoForm" class="auth-form" style="display: none;" onsubmit="handleUpdateInfo(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="updateFirstName"><i class="fas fa-user"></i> First Name:</label>
+                            <input type="text" id="updateFirstName" placeholder="Enter your first name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="updateLastName"><i class="fas fa-user"></i> Last Name:</label>
+                            <input type="text" id="updateLastName" placeholder="Enter your last name" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="updatePhoneNumber"><i class="fas fa-phone"></i> Phone Number:</label>
+                        <input type="tel" id="updatePhoneNumber" placeholder="Enter your phone number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="updateAddress"><i class="fas fa-map-marker-alt"></i> Address:</label>
+                        <input type="text" id="updateAddress" placeholder="Enter your address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="updateEmail"><i class="fas fa-envelope"></i> Email Address:</label>
+                        <input type="email" id="updateEmail" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="updatePassword"><i class="fas fa-lock"></i> New Password:</label>
+                        <input type="password" id="updatePassword" placeholder="Enter new password (optional)">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmUpdatePassword"><i class="fas fa-lock"></i> Confirm New Password:</label>
+                        <input type="password" id="confirmUpdatePassword" placeholder="Confirm new password (optional)">
+                    </div>
+                    <button type="submit" class="submit-button"><i class="fas fa-save"></i> Update Information</button>
+                    <p class="error-message" id="updateInfoError"></p>
+                </form>
+            </div>
+        </section>
+        
+        <!-- Admin Dashboard Section -->
+        <section id="admin-dashboard" class="section" style="display: none;">
+            <div class="section-header">
+                <h2>Admin Dashboard</h2>
+            </div>
+            <div class="section-content">
+                <div class="admin-dashboard-grid">
+                    <!-- Manage Users Card -->
+                    <div class="admin-card" onclick="showAdminSection('manage-users')">
+                        <i class="fas fa-users"></i>
+                        <h3>Manage Users</h3>
+                        <p>View, edit, and manage user accounts</p>
+                    </div>
+
+                    <!-- Edit Models Card -->
+                    <div class="admin-card" onclick="showAdminSection('edit-models')">
+                        <i class="fas fa-car"></i>
+                        <h3>Edit Models</h3>
+                        <p>Modify existing Porsche models</p>
+                    </div>
+
+                    <!-- Add Models Card -->
+                    <div class="admin-card" onclick="showAdminSection('add-models')">
+                        <i class="fas fa-plus-circle"></i>
+                        <h3>Add Models</h3>
+                        <p>Add new Porsche models to inventory</p>
+                    </div>
+
+                    <!-- Stock Card -->
+                    <div class="admin-card" onclick="showAdminSection('stock')">
+                        <i class="fas fa-boxes"></i>
+                        <h3>Stock</h3>
+                        <p>Manage inventory and stock levels</p>
+                    </div>
+
+                    <!-- Appointments Card -->
+                    <div class="admin-card" onclick="showAdminSection('appointments')">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h3>Appointments</h3>
+                        <p>View and manage customer appointments</p>
+                    </div>
+
+                    <!-- Discounts Card -->
+                    <div class="admin-card" onclick="showAdminSection('discounts')">
+                        <i class="fas fa-tags"></i>
+                        <h3>Discounts</h3>
+                        <p>Create and manage special offers</p>
+                    </div>
+
+                    <!-- Orders Card -->
+                    <div class="admin-card" onclick="showAdminSection('orders')">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h3>Orders</h3>
+                        <p>Track and manage customer orders</p>
+                    </div>
+                </div>
+
+                <!-- Admin Section Content -->
+                <div id="admin-section-content" class="admin-section-content">
+                    <!-- Content will be dynamically loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Order History Section -->
+        <section id="order-history" class="section" style="display: none;">
+            <div class="section-header">
+                <h2>Your Order History</h2>
+            </div>
+            <div class="section-content">
+                <div id="orderHistoryContent"></div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Login</h2>
+            <div class="login-options">
+                <button class="login-option-btn" id="adminLoginBtn">Login as Admin</button>
+                <button class="login-option-btn" id="userLoginBtn">Login as User</button>
+            </div>
+            
+            <!-- Admin Login Form (initially hidden) -->
+            <div id="adminLoginForm" class="auth-form" style="display:none;">
+                <h3>Admin Login</h3>
+                <div class="form-group">
+                    <label for="adminUsername"><i class="fas fa-user"></i> Username:</label>
+                    <input type="text" id="adminUsername" placeholder="Admin Username" required>
+                </div>
+                <div class="form-group">
+                    <label for="adminPassword"><i class="fas fa-lock"></i> Password:</label>
+                    <input type="password" id="adminPassword" placeholder="Admin Password" required>
+                </div>
+                <button class="submit-button" id="adminLoginSubmit">Login</button>
+                <p class="error-message" id="adminLoginError"></p>
+            </div>
+
+            <!-- User Login Form (initially hidden) -->
+            <div id="userLoginForm" class="auth-form" style="display:none;">
+                <h3>User Login</h3>
+                <div class="form-group">
+                    <label for="userEmail"><i class="fas fa-envelope"></i> Email:</label>
+                    <input type="email" id="userEmail" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="userPassword"><i class="fas fa-lock"></i> Password:</label>
+                    <input type="password" id="userPassword" placeholder="Your Password" required>
+                </div>
+                <button class="submit-button" id="userLoginSubmit">Login</button>
+                <p class="error-message" id="userLoginError"></p>
+                <p class="forgot-password-link" id="forgotPasswordLink" style="text-align:center; margin-top:1rem; cursor:pointer; color:#d4af37; font-weight:600;">Forgot Password?</p>
+            </div>
+
+            <!-- Forgot Password Modal -->
+            <div id="forgotPasswordModal" class="modal" style="display:none;">
+              <div class="modal-content" style="max-width:400px;">
+                <span class="close-modal" id="closeForgotPasswordModal">&times;</span>
+                <h2>Reset Password</h2>
+                <div id="forgotStepEmail">
+                  <label for="forgotEmailInput">Enter your registered email:</label>
+                  <input type="email" id="forgotEmailInput" placeholder="Your Email" style="width:100%;margin-bottom:1rem;">
+                  <button id="sendForgotPinBtn" class="action-button" style="width:100%;">Send PIN</button>
+                </div>
+                <div id="forgotStepPin" style="display:none;">
+                  <label for="forgotPinInput">Enter the PIN sent to your email:</label>
+                  <input type="text" id="forgotPinInput" placeholder="PIN" maxlength="6" style="width:100%;margin-bottom:1rem;">
+                  <button id="verifyForgotPinBtn" class="action-button" style="width:100%;">Verify PIN</button>
+                </div>
+                <div id="forgotStepNewPassword" style="display:none;">
+                  <label for="forgotNewPassword">New Password:</label>
+                  <input type="password" id="forgotNewPassword" placeholder="New Password" style="width:100%;margin-bottom:0.5rem;">
+                  <label for="forgotConfirmPassword">Confirm New Password:</label>
+                  <input type="password" id="forgotConfirmPassword" placeholder="Confirm New Password" style="width:100%;margin-bottom:1rem;">
+                  <button id="changeForgotPasswordBtn" class="action-button" style="width:100%;">Change Password</button>
+                </div>
+                <div id="forgotPasswordError" style="color:#d5001c; margin-top:0.5rem;"></div>
+                <div id="forgotPasswordSuccess" style="color:#27AE60; margin-top:0.5rem;"></div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>Prestige Porsche Works</h2>
+                <p>Excellence in Customization</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <a href="#home" onclick="showSection('home')">Home</a>
+                <a href="#models" onclick="showSection('models')">Models</a>
+                <a href="#customize" onclick="showSection('customize')">Customize</a>
+                <a href="#contact" onclick="showSection('contact')">Contact</a>
+            </div>
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/15VQTSeVvP/?mibextid=wwXIfr" class="social-icon facebook" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://wa.me/201026011230" class="social-icon whatsapp" aria-label="WhatsApp" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://www.instagram.com/prestigeporscheworks?igsh=Z3ZybnNmN2p6NWQy&utm_source=qr" class="social-icon instagram" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@prestige.porsche?_t=ZS-8xAoQtrfRzd&_r=1" class="social-icon tiktok" aria-label="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="https://x.com/porsc50184?s=11" class="social-icon twitter" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Prestige Porsche Works. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Registration Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Register</h2>
+            <form id="registerForm" class="auth-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName"><i class="fas fa-user"></i> First Name:</label>
+                        <input type="text" id="firstName" placeholder="Enter your first name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName"><i class="fas fa-user"></i> Last Name:</label>
+                        <input type="text" id="lastName" placeholder="Enter your last name" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="phoneNumber"><i class="fas fa-phone"></i> Phone Number:</label>
+                    <input type="tel" id="phoneNumber" placeholder="Enter your phone number" required>
+                </div>
+                <div class="form-group">
+                    <label for="address"><i class="fas fa-map-marker-alt"></i> Address:</label>
+                    <input type="text" id="address" placeholder="Enter your address" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail"><i class="fas fa-envelope"></i> Email Address:</label>
+                    <input type="email" id="registerEmail" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword"><i class="fas fa-lock"></i> Password:</label>
+                    <input type="password" id="registerPassword" placeholder="Enter your password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword"><i class="fas fa-lock"></i> Confirm Password:</label>
+                    <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+                </div>
+                <button type="submit" class="submit-button">Register</button>
+                <p class="error-message" id="registerError"></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- PIN Verification Modal -->
+    <div id="pinModal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal" id="closePinModal">&times;</span>
+        <h2>Email Verification</h2>
+        <p>Enter the PIN sent to your email to complete registration.</p>
+        <input type="text" id="pinInput" maxlength="6" placeholder="Enter 6-digit PIN" required>
+        <div class="pin-btn-group">
+          <button id="submitPinBtn" class="submit-button">Verify PIN</button>
+          <button id="resendPinBtn" class="submit-button">Resend PIN</button>
+          <button id="cancelPinBtn" class="submit-button">Cancel</button>
+        </div>
+        <p class="error-message" id="pinError"></p>
+        <p class="success-message" id="pinSuccess"></p>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content cart-modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Your Cart</h2>
+            <div id="cartItems" class="cart-items">
+                <!-- Cart items will be dynamically added here -->
+            </div>
+            <div class="cart-summary">
+                <div class="cart-total">
+                    <h3>Total: <span id="cartTotal">$0</span></h3>
+                </div>
+                <div class="cart-actions">
+                    <button id="selectAnotherModelBtn" onclick="showSection('models')" class="action-button">
+                        <i class="fas fa-car"></i> Select Another Model
+                    </button>
+                    <button onclick="proceedToPayment()" class="action-button">
+                        <i class="fas fa-credit-card"></i> Proceed to Payment
+                    </button>
+                    <button onclick="clearCart()" class="action-button remove-all-btn">
+                        <i class="fas fa-trash-alt"></i> Remove All
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Verify Email Modal -->
+    <div id="verifyEmailModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-modal" id="closeVerifyEmailModal">&times;</span>
+            <h2>Verify Your Email</h2>
+            <p>Enter your email and the PIN sent to you to complete registration.</p>
+            <input type="email" id="verifyEmailInput" placeholder="Enter your email" style="width: 100%; margin-bottom: 10px;" />
+            <input type="text" id="verifyPinInput" placeholder="Enter 6-digit PIN" maxlength="6" style="width: 100%; margin-bottom: 10px;" />
+            <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                <button id="submitVerifyEmailBtn" class="action-button">Verify</button>
+                <button id="resendVerifyPinBtn" class="action-button">Resend PIN</button>
+                <button id="cancelVerifyEmailBtn" class="action-button">Cancel</button>
+            </div>
+            <div id="verifyEmailError" style="color: #f44336; min-height: 20px;"></div>
+            <div id="verifyEmailSuccess" style="color: #4CAF50; min-height: 20px;"></div>
+        </div>
+    </div>
+
+    <!-- Purchase PIN Modal -->
+    <div id="purchasePinModal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal" id="closePurchasePinModal">&times;</span>
+        <h2>Enter Purchase Confirmation PIN</h2>
+        <p>A confirmation PIN has been sent to your email. Please enter it below to confirm your purchase. Do not share this PIN if this was not you.</p>
+        <input type="text" id="purchasePinInput" placeholder="Enter PIN" maxlength="6" style="width: 120px; text-align: center; font-size: 1.5rem; margin: 1rem 0;">
+        <div style="margin-bottom: 1rem;">
+          <button id="confirmPurchasePinBtn" class="action-button">Confirm</button>
+          <button id="resendPurchasePinBtn" class="action-button">Resend PIN</button>
+        </div>
+        <div id="purchasePinMessage" style="color: #d5001c; min-height: 1.5em;"></div>
+      </div>
+    </div>
+
+    <!-- Order Summary Modal -->
+    <div id="orderSummaryModal" class="modal" style="display:none;">
+      <div class="modal-content" id="orderSummaryModalContent" style="position:relative;"></div>
+    </div>
+
+    <script>
+    function updateAuthDisplay() {
+        const orderHistoryMenuItem = document.getElementById('orderHistoryMenuItem');
+        if (localStorage.getItem('isAdminLoggedIn') === 'true') {
+            if (orderHistoryMenuItem) orderHistoryMenuItem.style.display = 'none';
+        } else if (localStorage.getItem('isUserLoggedIn') === 'true') {
+            if (orderHistoryMenuItem) orderHistoryMenuItem.style.display = '';
+        } else {
+            if (orderHistoryMenuItem) orderHistoryMenuItem.style.display = 'none';
+        }
+        // ...rest of your UI logic...
+    }
+    </script>
+</body>
+</html>
