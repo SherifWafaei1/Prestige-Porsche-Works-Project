@@ -67,7 +67,7 @@
     // Function to fetch models from the backend
     async function fetchModels(page = currentPage, limit = modelsPerPage) {
         try {
-            const response = await fetch(`http://localhost:3001/api/models?page=${page}&limit=${limit}`);
+            const response = await fetch(`/api/models?page=${page}&limit=${limit}`);
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -212,7 +212,7 @@
             const username = adminUsernameInput.value;
             const password = adminPasswordInput.value;
             try {
-                const response = await fetch('http://localhost:3001/api/auth/login', {
+                const response = await fetch('/api/auth/login', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -257,7 +257,7 @@
             userLoginError.textContent = '';
             console.log('Attempting user login with backend...');
             try {
-                const response = await fetch('http://localhost:3001/api/auth/login', {
+                const response = await fetch('/api/auth/login', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -369,7 +369,7 @@
         try {
             // Send a request to the backend to verify the password
             // We can re-use the login endpoint for this purpose
-            const response = await fetch('http://localhost:3001/api/auth/login', {
+            const response = await fetch('/api/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -445,7 +445,7 @@
         updateInfoError.textContent = ''; // Clear any previous errors
 
         try {
-            const response = await fetch(`http://localhost:3001/api/users/profile`, {
+            const response = await fetch(`/api/users/profile`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -806,7 +806,7 @@
             return;
         }
         try {
-            const response = await fetch(`http://localhost:3001/api/discounts/verify?code=${encodeURIComponent(code)}`);
+            const response = await fetch(`/api/discounts/verify?code=${encodeURIComponent(code)}`);
             if (!response.ok) {
                 const data = await response.json();
                 messageDiv.style.color = 'red';
@@ -1029,7 +1029,7 @@
             };
             pendingOrderData = orderData;
             try {
-                const response = await fetch('http://localhost:3001/api/orders/request-pin', {
+                const response = await fetch('/api/orders/request-pin', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -1096,7 +1096,7 @@
                 }
 
                 try {
-                    const response = await fetch('http://localhost:3001/api/contact', {
+                    const response = await fetch('/api/contact', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
@@ -1346,7 +1346,7 @@ document.head.appendChild(style);
 
             console.log('Attempting registration with backend...');
 
-            fetch('http://localhost:3001/api/auth/register', {
+            fetch('/api/auth/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -1449,7 +1449,7 @@ document.head.appendChild(style);
         }
 
         try {
-            const response = await fetch('http://localhost:3001/api/users', {
+            const response = await fetch('/api/users', {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -1604,7 +1604,7 @@ document.head.appendChild(style);
             role: 'user' // Default new user to 'user' role
         };
 
-        fetch('http://localhost:3001/api/auth/register', {
+        fetch('/api/auth/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -1645,7 +1645,7 @@ document.head.appendChild(style);
         }
 
         try {
-            const response = await fetch(`http://localhost:3001/api/users/${userId}`, {
+            const response = await fetch(`/api/users/${userId}`, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -1764,7 +1764,7 @@ document.head.appendChild(style);
         }
 
         try {
-            const response = await fetch(`http://localhost:3001/api/users/${userId}/role`, { // Using /role route for role update, other fields go to /profile
+            const response = await fetch(`/api/users/${userId}/role`, { // Using /role route for role update, other fields go to /profile
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -1783,7 +1783,7 @@ document.head.appendChild(style);
             const profileUpdateData = { ...updatedData };
             delete profileUpdateData.role; // Role handled by separate endpoint
 
-            const profileResponse = await fetch(`http://localhost:3001/api/users/${userId}`, { // Assuming a PUT /api/users/:id for general user updates
+            const profileResponse = await fetch(`/api/users/${userId}`, { // Assuming a PUT /api/users/:id for general user updates
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -1816,7 +1816,7 @@ document.head.appendChild(style);
             }
             
             try {
-                const response = await fetch(`http://localhost:3001/api/users/${userId}`, {
+                const response = await fetch(`/api/users/${userId}`, {
                     method: 'DELETE',
                     headers: {
                         'Authorization': `Bearer ${token}`
@@ -1845,7 +1845,7 @@ document.head.appendChild(style);
         }
 
         try {
-            const response = await fetch('http://localhost:3001/api/models', {
+            const response = await fetch('/api/models', {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -1923,7 +1923,7 @@ document.head.appendChild(style);
         }
 
         try {
-            const response = await fetch(`http://localhost:3001/api/models/${modelId}`, {
+            const response = await fetch(`/api/models/${modelId}`, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -2022,7 +2022,7 @@ document.head.appendChild(style);
         };
 
         try {
-            const response = await fetch(`http://localhost:3001/api/models/${modelId}`, {
+            const response = await fetch(`/api/models/${modelId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -2055,7 +2055,7 @@ document.head.appendChild(style);
             }
 
             try {
-                const response = await fetch(`http://localhost:3001/api/models/${modelId}`, {
+                const response = await fetch(`/api/models/${modelId}`, {
                     method: 'DELETE',
                     headers: {
                         'Authorization': `Bearer ${token}`
@@ -2161,7 +2161,7 @@ document.head.appendChild(style);
         };
 
         try {
-            const response = await fetch('http://localhost:3001/api/models', {
+            const response = await fetch('/api/models', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -2193,7 +2193,7 @@ document.head.appendChild(style);
         }
 
         try {
-            const response = await fetch('http://localhost:3001/api/models', {
+            const response = await fetch('/api/models', {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -2268,7 +2268,7 @@ document.head.appendChild(style);
         }
 
         try {
-            const response = await fetch(`http://localhost:3001/api/models/${modelId}/stock`, {
+            const response = await fetch(`/api/models/${modelId}/stock`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
@@ -2300,7 +2300,7 @@ document.head.appendChild(style);
         }
 
         try {
-            const response = await fetch('http://localhost:3001/api/contact', {
+            const response = await fetch('/api/contact', {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -2362,7 +2362,7 @@ document.head.appendChild(style);
         }
 
         try {
-            const response = await fetch('http://localhost:3001/api/discounts', {
+            const response = await fetch('/api/discounts', {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -2449,7 +2449,7 @@ document.head.appendChild(style);
         }
 
         try {
-            const response = await fetch(`http://localhost:3001/api/discounts/${discountId}`, {
+            const response = await fetch(`/api/discounts/${discountId}`, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -2507,7 +2507,7 @@ document.head.appendChild(style);
         }
 
         try {
-            const response = await fetch(`http://localhost:3001/api/discounts/${discountId}`, {
+            const response = await fetch(`/api/discounts/${discountId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -2550,7 +2550,7 @@ document.head.appendChild(style);
         }
 
         try {
-            const response = await fetch('http://localhost:3001/api/discounts', {
+            const response = await fetch('/api/discounts', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -2581,7 +2581,7 @@ document.head.appendChild(style);
         }
 
         try {
-            const response = await fetch(`http://localhost:3001/api/discounts/${discountId}`, {
+            const response = await fetch(`/api/discounts/${discountId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -2613,7 +2613,7 @@ document.head.appendChild(style);
             }
 
             try {
-                const response = await fetch(`http://localhost:3001/api/discounts/${discountId}`, {
+                const response = await fetch(`/api/discounts/${discountId}`, {
                     method: 'DELETE',
                     headers: {
                         'Authorization': `Bearer ${token}`
@@ -2676,7 +2676,7 @@ document.head.appendChild(style);
 
         try {
             // First fetch all models to get their images
-            const modelsResponse = await fetch('http://localhost:3001/api/models?limit=10000', { // Request a large number of models
+            const modelsResponse = await fetch('/api/models?limit=10000', { // Request a large number of models
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -2689,7 +2689,7 @@ document.head.appendChild(style);
             console.log('Fetched models:', models); // Log the fetched models
 
             // Then fetch orders
-            const response = await fetch('http://localhost:3001/api/orders', {
+            const response = await fetch('/api/orders', {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -2779,7 +2779,7 @@ document.head.appendChild(style);
         }
 
         try {
-            const response = await fetch(`http://localhost:3001/api/orders/${orderId}`, {
+            const response = await fetch(`/api/orders/${orderId}`, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -2842,7 +2842,7 @@ document.head.appendChild(style);
         }
 
         try {
-            const response = await fetch(`http://localhost:3001/api/orders/${orderId}`, {
+            const response = await fetch(`/api/orders/${orderId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -2918,7 +2918,7 @@ document.head.appendChild(style);
         }
 
         try {
-            const response = await fetch('http://localhost:3001/api/discounts', {
+            const response = await fetch('/api/discounts', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -3132,7 +3132,7 @@ document.head.appendChild(style);
             console.log('Attempting user login with backend...');
 
             try {
-                const response = await fetch('http://localhost:3001/api/auth/login', {
+                const response = await fetch('/api/auth/login', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -3394,7 +3394,7 @@ document.head.appendChild(style);
                 pinError.textContent = 'Please enter the PIN.';
                 return;
             }
-            fetch('http://localhost:3001/api/auth/verify-pin', {
+            fetch('/api/auth/verify-pin', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email: pendingVerificationEmail, pin })
@@ -3433,7 +3433,7 @@ document.head.appendChild(style);
                 pinError.textContent = 'No email to resend PIN to.';
                 return;
             }
-            fetch('http://localhost:3001/api/auth/resend-pin', {
+            fetch('/api/auth/resend-pin', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email: pendingVerificationEmail })
@@ -3488,7 +3488,7 @@ document.head.appendChild(style);
     // Fetch cart from backend
     async function fetchCartFromBackend() {
         try {
-            const res = await fetch('http://localhost:3001/api/auth/cart', {
+            const res = await fetch('/api/auth/cart', {
                 headers: { 'Authorization': `Bearer ${getAuthToken()}` }
             });
             if (res.ok) {
@@ -3503,7 +3503,7 @@ document.head.appendChild(style);
     // Save cart to backend
     async function saveCartToBackend() {
         try {
-            await fetch('http://localhost:3001/api/auth/cart', {
+            await fetch('/api/auth/cart', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -3517,7 +3517,7 @@ document.head.appendChild(style);
     // Clear cart in backend
     async function clearCartInBackend() {
         try {
-            await fetch('http://localhost:3001/api/auth/cart', {
+            await fetch('/api/auth/cart', {
                 method: 'DELETE',
                 headers: { 'Authorization': `Bearer ${getAuthToken()}` }
             });
@@ -3551,7 +3551,7 @@ document.head.appendChild(style);
         if (localStorage.getItem('isUserLoggedIn') === 'true') {
             try {
                 // Try to fetch cart with token
-                const res = await fetch('http://localhost:3001/api/auth/cart', {
+                const res = await fetch('/api/auth/cart', {
                     headers: { 'Authorization': `Bearer ${getAuthToken()}` }
                 });
                 if (res.status === 401 || res.status === 403) {
@@ -3600,7 +3600,7 @@ document.head.appendChild(style);
         if (token) {
             try {
                 // Check user info
-                const userRes = await fetch('http://localhost:3001/api/auth/me', {
+                const userRes = await fetch('/api/auth/me', {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 if (userRes.ok) {
@@ -3609,7 +3609,7 @@ document.head.appendChild(style);
                 }
                 // Fetch cart if logged in
                 if (isLoggedIn) {
-                    const cartRes = await fetch('http://localhost:3001/api/auth/cart', {
+                    const cartRes = await fetch('/api/auth/cart', {
                         headers: { 'Authorization': `Bearer ${token}` }
                     });
                     if (cartRes.ok) {
@@ -3710,7 +3710,7 @@ document.head.appendChild(style);
             localStorage.removeItem('isUserLoggedIn');
             // Notify backend to delete unverified user
             if (pendingVerificationEmail) {
-                fetch('http://localhost:3001/api/auth/cancel-registration', {
+                fetch('/api/auth/cancel-registration', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email: pendingVerificationEmail })
@@ -3766,7 +3766,7 @@ document.head.appendChild(style);
                 return;
             }
             try {
-                const res = await fetch('http://localhost:3001/api/auth/verify-pin', {
+                const res = await fetch('/api/auth/verify-pin', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email, pin })
@@ -3801,7 +3801,7 @@ document.head.appendChild(style);
                 return;
             }
             try {
-                const res = await fetch('http://localhost:3001/api/auth/resend-pin', {
+                const res = await fetch('/api/auth/resend-pin', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email: pendingVerificationEmail })
@@ -3865,7 +3865,7 @@ document.head.appendChild(style);
         forgotPasswordError.textContent = '';
         forgotPasswordSuccess.textContent = '';
         try {
-          const res = await fetch('http://localhost:3001/api/auth/send-reset-pin', {
+          const res = await fetch('/api/auth/send-reset-pin', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email })
@@ -3895,7 +3895,7 @@ document.head.appendChild(style);
         forgotPasswordError.textContent = '';
         forgotPasswordSuccess.textContent = '';
         try {
-          const res = await fetch('http://localhost:3001/api/auth/verify-reset-pin', {
+          const res = await fetch('/api/auth/verify-reset-pin', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email: forgotEmail, pin })
@@ -3934,7 +3934,7 @@ document.head.appendChild(style);
         forgotPasswordError.textContent = '';
         forgotPasswordSuccess.textContent = '';
         try {
-          const res = await fetch('http://localhost:3001/api/auth/change-password', {
+          const res = await fetch('/api/auth/change-password', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email: forgotEmail, pin: forgotPin, newPassword })
@@ -4015,7 +4015,7 @@ document.head.appendChild(style);
         }
         msg.textContent = 'Verifying...';
         try {
-            const res = await fetch('http://localhost:3001/api/orders/verify-pin', {
+            const res = await fetch('/api/orders/verify-pin', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -4055,7 +4055,7 @@ document.head.appendChild(style);
             return;
         }
         try {
-            const res = await fetch('http://localhost:3001/api/orders/request-pin', {
+            const res = await fetch('/api/orders/request-pin', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -4165,7 +4165,7 @@ document.head.appendChild(style);
             };
             pendingOrderData = orderData;
             try {
-                const response = await fetch('http://localhost:3001/api/orders/request-pin', {
+                const response = await fetch('/api/orders/request-pin', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -4209,7 +4209,7 @@ document.head.appendChild(style);
             return;
         }
         // Fetch orders for this user (from backend or localStorage)
-        fetch(`http://localhost:3001/api/orders/user/${encodeURIComponent(currentUser.email)}`)
+        fetch(`/api/orders/user/${encodeURIComponent(currentUser.email)}`)
             .then(res => res.json())
             .then(orders => {
                 if (!orders || orders.length === 0) {
