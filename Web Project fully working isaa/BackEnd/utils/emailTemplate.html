@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{SUBJECT}}</title>
+    <style>
+        body {
+            font-family: 'Inter', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333333;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-top: 5px solid #d5001c; /* Porsche Red */
+        }
+        .header {
+            background-color: #000000; /* Porsche Black */
+            padding: 20px;
+            text-align: center;
+            color: #ffffff;
+        }
+        .header img {
+            max-width: 150px;
+            height: auto;
+        }
+        .content {
+            padding: 30px;
+            line-height: 1.6;
+        }
+        .content h1 {
+            color: #d5001c; /* Porsche Red */
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .content p {
+            margin-bottom: 15px;
+        }
+        .button-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #d5001c; /* Porsche Red */
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .footer {
+            background-color: #f4f4f4;
+            padding: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #777777;
+            border-top: 1px solid #eeeeee;
+        }
+        .footer a {
+            color: #d5001c;
+            text-decoration: none;
+        }
+        .discount-code {
+            display: block;
+            background-color: #eeeeee;
+            padding: 10px 20px;
+            border-left: 5px solid #005baa; /* Porsche Blue */
+            margin: 20px auto;
+            max-width: 80%;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            color: #005baa;
+        }
+        .receipt-summary {
+            background-color: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        .receipt-summary p {
+            margin: 5px 0;
+        }
+        .receipt-summary strong {
+            color: #000000;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <h2>Prestige Porsche Works</h2>
+        </div>
+        <div class="content">
+            <h1>{{EMAIL_SUBJECT}}</h1>
+            {{EMAIL_BODY}}
+        </div>
+        <div class="footer">
+            <p>&copy; 2024 Prestige Porsche Works. All rights reserved.</p>
+            <p>Egypt, Cairo</p>
+            <p><a href="mailto:prestigeporscheworks@gmail.com">prestigeporscheworks@gmail.com</a></p>
+        </div>
+    </div>
+</body>
+</html> 
